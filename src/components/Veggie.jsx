@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import {Splide,SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import {Link} from 'react-router-dom';
 
 
 function Veggie() {
@@ -31,7 +32,7 @@ function Veggie() {
   return (
     <div>
         <Wrapper>
-            <h3>veggie Picks</h3>
+            <h3>Veggie Picks</h3>
             <Splide options={{
               perPage:3,
               arrows: false,
@@ -43,9 +44,12 @@ function Veggie() {
                   return(
                     <SplideSlide key={recipe.id}>
                       <Card>
-                        <p>{recipe.title}</p>
+                      <Link to={'/recipe/'+ recipe.id}>
+                        
                         <img src={recipe.image} alt={recipe.title} />
+                        <p>{recipe.title}</p>
                         <Gradient/>
+                       </Link> 
                       </Card>
                     </SplideSlide>
                   );  
@@ -61,34 +65,34 @@ const Wrapper = styled.div`
 margin: 2rem 0rem;
 `;
 const Card =styled.div`
-  min-height:25rem;
+  // min-height:25rem;
   border-radius:2rem;
   overflow:hidden;
   position:relative;
 
   img{
-    border-radius:2rem;
-    position: absolute;
-    left:0;
+    // border-radius:2rem;
+    // position: absolute;
+    // left:0;
     width:100%
-    height:100%
-    object-fit: cover;
+    // height:100%
+    // object-fit: cover;
   }
   p{
-    postion:absolute;
+    // postion:absolute;
     z-index: 10;
-    left: 50%;
-    bottom: 0%;
-    transform: translate(-50%,0%);
-    color: white;
+    // left: 50%;
+    // bottom: 0%;
+    // transform: translate(-50%,0%);
+    // color: white;
     width:100%;
     text-align: center;
-    font-weight: 600;
-    font-size: 1rem;
-    height: 40%;
-    display:flex;
-    justify-content:center;
-    align-item:center;
+    // font-weight: 600;
+    // font-size: 1rem;
+    // height: 40%;
+    // display:flex;
+    // justify-content:center;
+    // align-item:center;
   }
   `;
   const Gradient =styled.div`

@@ -3,6 +3,8 @@ import styled from "styled-components";
 import {Splide,SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
+import {Link} from 'react-router-dom';
+
 function Popular() {
   const [popular,setPopular] = useState([]);
   useEffect(() =>
@@ -43,12 +45,15 @@ function Popular() {
                 {popular.map((recipe) =>{
                   return(
                     <SplideSlide key={recipe.id}>
-                      <p>{recipe.title}</p>
+                     
                       <Card>
-                      
-                      <img src={recipe.image} alt={recipe.title} />
-                      <Gradient/>
-                    </Card>
+                        <Link to={'/recipe/'+ recipe.id}>
+                          
+                          <img src={recipe.image} alt={recipe.title} />
+                          <p>{recipe.title}</p>
+                        </Link>
+                        <Gradient/>
+                     </Card>
                       
                     </SplideSlide>
                   );  
@@ -73,28 +78,31 @@ const Card =styled.div`
   
 
   img{
-    border-radius:2rem;
-    position: absolute;
-    left:0;
-    width:100%
-    height:100%
-    object-fit: cover;
+    // border-radius:2rem;
+    // position: absolute;
+    // left:0;
+    width:150%
+    // height:100%
+    // object-fit: cover;
+    // max-height: 200px;
+    // max-width: 400px;
+    
   }
   p{
-    postion:absolute;
+    // postion:absolute;
     z-index: 10;
-    left: 50%;
-    bottom: 0%;
-    transform: translate(-50%,0%);
-    color: white;
+    // left: 50%;
+    // bottom: 0%;
+    // transform: translate(-50%,0%);
+    // color: white;
     width:100%;
     text-align: center;
-    font-weight: 600;
-    font-size: 1rem;
-    height: 40%;
-    display:flex;
-    justify-content:center;
-    align-item:center;
+    // font-weight: 600;
+    // font-size: 1rem;
+    // height: 40%;
+    // display:flex;
+    // justify-content:center;
+    // align-item:center;
   }
   `;
   const Gradient =styled.div`
